@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Salaries</title>
+</head>
+<body>
+<div align="center">
+    <h1>Titles</h1>
+    <a href="/">Home</a>
+    <br/><br/> 
+    <a href="newtitle">Create Title</a>
+    <br/><br/> 
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Employee No</th>
+                <th>Title</th>
+                <th>Date From</th>
+                <th>Date To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="titles_entities : ${listtitle}">
+                <td th:text="${titles_entities.emp_no}">Employee No</td>
+                <td th:text="${titles_entities.title}">Title</td>
+                <td th:text="${titles_entities.from_date}">Date From</td>
+                <td th:text="${titles_entities.to_date}">Date To</td>
+				<td>
+                    <a th:href="@{deletetitle/{emp_no}(emp_no=${titles_entities.emp_no})}">Delete</a>
+                	<a th:href="@{edittitle/{emp_no}(emp_no=${titles_entities.emp_no})}">Edit</a>
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  
+</div>   
+</body>
+</html>

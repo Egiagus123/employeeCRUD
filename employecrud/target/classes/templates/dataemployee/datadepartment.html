@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Employees</title>
+</head>
+<body>
+<div align="center">
+    <h1>Data Department Manager</h1>
+    <a href="/">Home</a>
+    <br/><br/> 
+    <a href="newdepartment">Create Departement</a>
+    <br/><br/> 
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Department No</th>
+                <th>Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="departments_entities : ${listDepartmentService}">
+                <td th:text="${departments_entities.dept_no}">Employee No</td>
+                <td th:text="${departments_entities.dept_name}">Department No</td>
+                  
+            </tr>
+        </tbody>
+    </table>
+  
+</div>   
+</body>
+</html>

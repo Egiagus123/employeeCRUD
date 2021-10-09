@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Employees</title>
+</head>
+<body>
+<div align="center">
+    <h1>Data Employee</h1>
+    <a href="new">Create New Data Employee</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Employee No</th>
+                <th>Department No</th>
+                <th>Date From</th>
+                <th>Date To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dept_empEntities : ${listDataEmployee}">
+                <td th:text="${dept_empEntities.emp_no}">Employee No</td>
+                <td th:text="${dept_empEntities.dept_no}">Department No</td>
+                <td th:text="${dept_empEntities.from_date}">Date From</td>
+                <td th:text="${dept_empEntities.to_date}">Date To</td>
+                <td>
+                    <a th:href="@{delete/{emp_no}(emp_no=${dept_empEntities.emp_no})}">Delete</a>
+                	<a th:href="@{edit/{emp_no}(emp_no=${dept_empEntities.emp_no})}">Edit</a>
+                
+                </td>
+            </tr>
+        </tbody>
+   </table>
+    <br/><br/>
+    	<a href="department">Departement</a>
+    <br/><br/>
+    	<a href="department_manager">Departement Manager</a>
+    <br/><br/>
+    	<a href="employees">Employees</a>
+    <br/><br/>
+    	<a href="salaries">Salaries</a>
+    <br/><br/>
+    	<a href="title">Title</a>
+    <br/><br/>
+  
+</div>   
+</body>
+</html>
